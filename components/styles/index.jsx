@@ -1,12 +1,13 @@
+import { Fragment } from "react";
 import { Raleway, Roboto } from "./fontEmbedding/";
 import Elements from "./elements";
 
 const Styles = () => (
-	<div>
+	<Fragment>
 		<Raleway />
 		<Roboto />
 		<Elements />
-	</div>
+	</Fragment>
 );
 
 export default Styles;
