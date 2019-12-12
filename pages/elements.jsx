@@ -1,10 +1,11 @@
 import Styles from "../components/styles/";
+import Text from "../components/atoms/Text/";
 
 const Elements = () => (
 	<main>
 		<Styles />
 
-		<p>
+		<Text textAlign="center">
 			There are many variations of passages of Lorem Ipsum available, but the
 			majority have suffered alteration in some form, by injected humour, or
 			randomised words which don&apos;t look even slightly believable. If you
@@ -16,7 +17,7 @@ const Elements = () => (
 			sentence structures, to generate Lorem Ipsum which looks reasonable. The
 			generated Lorem Ipsum is therefore always free from repetition, injected
 			humour, or non-characteristic words etc.
-		</p>
+		</Text>
 	</main>
 );
 
