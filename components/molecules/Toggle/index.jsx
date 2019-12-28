@@ -14,8 +14,7 @@ class Toggle extends Component {
 		this.setState(
 			({ on }) => ({ on: !on }),
 			() => {
-				console.log("on toggle clicked");
-				//this.props.onToggle(this.state.on);
+				this.props.onToggle(this.state.on);
 			}
 		);
 	};
