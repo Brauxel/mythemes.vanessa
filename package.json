@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Vanessa Theme built using React JS",
   "main": "index.js",
-  "repository": "git@github.com:Brauxel/mythemes.vanessa.git",
-  "author": "Aakash Bhatia <akash.bhatia1184@gmail.com>",
+  "repository": "https://aakashbhatia@bitbucket.org/sumo_/sumo-frontend-reactjs.git",
+  "author": "Aakash Bhatia <abhatia@sumo.com.au>",
   "license": "MIT",
   "scripts": {
     "dev": "next",
@@ -15,9 +15,6 @@
     "lint": "eslint \"**/*.{js,jsx}\" --quiet",
     "analyse": "ANALYZE=true yarn build"
   },
-  "repository": "https://aakashbhatia@bitbucket.org/sumo_/sumo-frontend-reactjs.git",
-  "author": "Aakash Bhatia <abhatia@sumo.com.au>",
-  "license": "MIT",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
@@ -51,5 +48,5 @@
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^2.0.1",
     "prettier": "^1.18.2"
-  }  
+  }
 }
