@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
+import { ToggleButton, ToggleInput } from "./styles";
 
 class ToggleSwitch extends Component {
 	render() {
@@ -10,15 +11,12 @@ class ToggleSwitch extends Component {
 
 		return (
 			<Fragment>
-				<input
-					className="toggle-input"
+				<ToggleInput
 					onChange={() => {}} // the change is handled via the button
 					type="checkbox"
 					checked={on}
 				/>
-				<button aria-label="toggle" className={btnClassName} {...props}>
-					This is a toggle button
-				</button>
+				<ToggleButton aria-label="toggle" className={btnClassName} {...props} />
 			</Fragment>
 		);
 	}
