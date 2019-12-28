@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import ToggleSwitch from "../../atoms/ToggleSwitch/";
+import PropTypes from "prop-types";
 
 class Toggle extends Component {
 	/* 
@@ -20,8 +22,12 @@ class Toggle extends Component {
 
 	render() {
 		const { on } = this.state;
-		return <div>Toggler goes gere, current on value {on.toString()}</div>;
+		return <ToggleSwitch on={on} onClick={this.toggle} />;
 	}
 }
+
+Toggle.propTypes = {
+	onToggle: PropTypes.func
+};
 
 export default Toggle;

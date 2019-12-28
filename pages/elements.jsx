@@ -1,7 +1,7 @@
 import Styles from "../components/styles/";
 import Text from "../components/atoms/Text/";
 import Heading from "../components/atoms/Heading/";
-import Toggle from "../components/atoms/Toggle/";
+import Toggle from "../components/molecules/Toggle/";
 
 const Elements = () => (
 	<main>
