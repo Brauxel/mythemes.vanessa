@@ -3,10 +3,11 @@ import ToggleSwitch from "../../atoms/ToggleSwitch/";
 import PropTypes from "prop-types";
 
 const Usage = ({
-	onToggle = (...args) => console.log("onToggle", ...args)
+	onToggle = (...args) => console.log("onToggle", ...args),
+	onReset = (...args) => console.log("onReset", ...args)
 }) => (
-	<Toggle onToggle={onToggle}>
-		{({ on, getTogglerProps }) => (
+	<Toggle initialOn={false} onReset={onReset} onToggle={onToggle}>
+		{({ on, getTogglerProps, reset }) => (
 			<div>
 				{on ? "The button is on" : "The button is off"}
 				<ToggleSwitch {...getTogglerProps({ on })} />
@@ -19,6 +20,7 @@ const Usage = ({
 				>
 					{on ? "on" : "off"}
 				</button>
+				<button onClick={() => reset()}>Reset</button>
 			</div>
 		)}
 	</Toggle>
