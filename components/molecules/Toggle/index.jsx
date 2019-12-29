@@ -1,5 +1,6 @@
 import { Component } from "react";
 import PropTypes from "prop-types";
+import { callAll } from "../../../helpers/utilities";
 
 class Toggle extends Component {
 	/*
@@ -16,14 +17,17 @@ class Toggle extends Component {
 		);
 	};
 
+	getTogglerProps = ({ onClick, ...props }) => ({
+		"aria-expanded": this.state.on,
+		onClick: callAll(onClick, this.toggle),
+		...props
+	});
+
 	getStateAndHelpers() {
 		return {
 			on: this.state.on,
 			toggle: this.toggle,
-			togglerProps: {
-				"aria-expanded": this.state.on,
-				onClick: this.toggle
-			}
+			getTogglerProps: this.getTogglerProps
 		};
 	}
 

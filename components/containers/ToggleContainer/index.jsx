@@ -6,12 +6,17 @@ const Usage = ({
 	onToggle = (...args) => console.log("onToggle", ...args)
 }) => (
 	<Toggle onToggle={onToggle}>
-		{({ on, togglerProps }) => (
+		{({ on, getTogglerProps }) => (
 			<div>
 				{on ? "The button is on" : "The button is off"}
-				<ToggleSwitch on={on} {...togglerProps} />
+				<ToggleSwitch {...getTogglerProps({ on })} />
 				<hr />
-				<button aria-label="custom-button" {...togglerProps}>
+				<button
+					{...getTogglerProps({
+						"aria-label": "custom-label",
+						onClick: () => console.log("Buttton Clicked")
+					})}
+				>
 					{on ? "on" : "off"}
 				</button>
 			</div>
