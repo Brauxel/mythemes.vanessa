@@ -19,7 +19,11 @@ class Toggle extends Component {
 	getStateAndHelpers() {
 		return {
 			on: this.state.on,
-			toggle: this.toggle
+			toggle: this.toggle,
+			togglerProps: {
+				"aria-expanded": this.state.on,
+				onClick: this.toggle
+			}
 		};
 	}
 
