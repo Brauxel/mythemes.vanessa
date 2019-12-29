@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { ToggleButton, ToggleInput } from "./styles";
 
@@ -10,14 +10,14 @@ class ToggleSwitch extends Component {
 			.join(" ");
 
 		return (
-			<Fragment>
+			<div>
 				<ToggleInput
 					onChange={() => {}} // the change is handled via the button
 					type="checkbox"
 					checked={on}
 				/>
 				<ToggleButton aria-label="toggle" className={btnClassName} {...props} />
-			</Fragment>
+			</div>
 		);
 	}
 }
