@@ -7,7 +7,9 @@ const Usage = ({
 	<Toggle onToggle={onToggle}>
 		<Toggle.On>The the switch is ON</Toggle.On>
 		<Toggle.Off>The the switch is OFF</Toggle.Off>
-		<Toggle.Button />
+		<div>
+			<Toggle.Button />
+		</div>
 	</Toggle>
 );
 
