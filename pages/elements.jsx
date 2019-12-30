@@ -14,7 +14,11 @@ const Elements = () => (
 			majority have suffered.
 		</Text>
 
+		<Heading>Toggle with no control prop</Heading>
 		<Toggle />
+
+		<Heading>Toggle with control prop</Heading>
+		<Toggle on={true} />
 	</main>
 );
 

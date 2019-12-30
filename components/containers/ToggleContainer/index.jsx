@@ -51,6 +51,7 @@ class Usage extends Component {
 				stateReducer={this.toggleStateReducer}
 				onReset={this.handleReset}
 				onToggle={this.handleToggle}
+				on={this.props.on}
 			>
 				{({ on, getTogglerProps, toggle, reset }) => (
 					<div>
@@ -81,7 +82,8 @@ class Usage extends Component {
 
 Usage.propTypes = {
 	onToggle: PropTypes.func.isRequired,
-	onReset: PropTypes.func.isRequired
+	onReset: PropTypes.func.isRequired,
+	on: PropTypes.bool
 };
 
 export default Usage;

@@ -9,6 +9,12 @@ class Toggle extends Component {
 		stateReducer: (state, changes) => changes
 	};
 
+	// 🐨 let's add a function that can determine whether
+	// the on prop is controlled. Call it `isOnControlled`.
+	isOnControlled() {
+		return this.props.on !== undefined;
+	}
+
 	// Lets define and initial state that can be used to initiate the reset the system, this makes large initial states easy to control in one place.
 	initialState = { on: this.props.initialOn };
 
@@ -25,6 +31,16 @@ class Toggle extends Component {
     	- We can make use of @babel/plugin-proposal-class-properties that is set in .babelrc to avoid declaring the state and super(props) in the class constructor as is the usual norm
   	*/
 	state = this.initialState;
+
+	// 🐨 Now let's add a function that can return the state
+	// whether it's coming from this.state or this.props
+	// Call it `getState` and have it return on from
+	// state if it's not controlled or props if it is.
+	getState = () => {
+		return {
+			on: this.isOnControlled() ? this.props.on : this.state.on
+		};
+	};
 
 	/*
 		- This function serves as our state reducer
@@ -48,12 +64,19 @@ class Toggle extends Component {
 	}
 
 	toggle = ({ type = Toggle.stateChangeTypes.toggle } = {}) => {
-		this.internalSetState(
-			({ on }) => ({ type, on: !on }),
-			() => {
-				this.props.onToggle(this.state.on);
-			}
-		);
+		// 🐨 if the toggle is controlled, then we shouldn't
+		// be updating state. Instead we should just call
+		// `this.props.onToggle` with what the state should be
+		if (this.isOnControlled()) {
+			this.props.onToggle(this.getState().on);
+		} else {
+			this.internalSetState(
+				({ on }) => ({ type, on: !on }),
+				() => {
+					this.props.onToggle(this.getState().on);
+				}
+			);
+		}
 	};
 
 	reset = () =>
@@ -63,14 +86,14 @@ class Toggle extends Component {
 		);
 
 	getTogglerProps = ({ onClick, ...props }) => ({
-		"aria-expanded": this.state.on,
+		"aria-expanded": this.getState().on,
 		onClick: callAll(onClick, () => this.toggle()), // this.toggle is called as a function in this case as it defines the type as an argument
 		...props
 	});
 
 	getStateAndHelpers() {
 		return {
-			on: this.state.on,
+			on: this.getState().on,
 			toggle: this.toggle,
 			reset: this.reset,
 			getTogglerProps: this.getTogglerProps
@@ -87,7 +110,8 @@ Toggle.propTypes = {
 	children: PropTypes.func.isRequired,
 	initialOn: PropTypes.bool.isRequired,
 	onReset: PropTypes.func.isRequired,
-	stateReducer: PropTypes.func.isRequired
+	stateReducer: PropTypes.func.isRequired,
+	on: PropTypes.bool
 };
 
 export default Toggle;
