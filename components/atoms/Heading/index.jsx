@@ -10,6 +10,7 @@ Heading.propTypes = {
 	fontSize: PropTypes.string,
 	iPadfontSize: PropTypes.string,
 	textTransform: PropTypes.string,
+	as: PropTypes.string,
 	children: PropTypes.oneOfType([
 		PropTypes.string,
 		PropTypes.array,
