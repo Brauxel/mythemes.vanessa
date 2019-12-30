@@ -68,7 +68,7 @@ class Toggle extends Component {
 		// be updating state. Instead we should just call
 		// `this.props.onToggle` with what the state should be
 		if (this.isOnControlled()) {
-			this.props.onToggle(this.getState().on);
+			this.props.onToggle(!this.getState().on);
 		} else {
 			this.internalSetState(
 				({ on }) => ({ type, on: !on }),
