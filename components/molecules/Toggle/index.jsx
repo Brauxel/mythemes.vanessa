@@ -6,13 +6,18 @@ class Toggle extends Component {
 	static defaultProps = {
 		initialOn: false,
 		onReset: () => {},
+		// Now that a user can use this component effectively without
+		// an `onToggle` prop (they can use `onStateChange` instead)
+		// let's provide a default for `onToggle` and `onStateChange`
+		onToggle: () => {},
+		onStateChange: () => {},
 		stateReducer: (state, changes) => changes
 	};
 
-	// 🐨 let's add a function that can determine whether
-	// the on prop is controlled. Call it `isOnControlled`.
-	isOnControlled() {
-		return this.props.on !== undefined;
+	// let's add a function that can determine whether
+	// the a prop is controlled. Call it `isControlled`.
+	isControlled(prop) {
+		return this.props[prop] !== undefined;
 	}
 
 	// Lets define and initial state that can be used to initiate the reset the system, this makes large initial states easy to control in one place.
@@ -32,51 +37,79 @@ class Toggle extends Component {
   	*/
 	state = this.initialState;
 
-	// 🐨 Now let's add a function that can return the state
-	// whether it's coming from this.state or this.props
-	// Call it `getState` and have it return on from
-	// state if it's not controlled or props if it is.
-	getState = () => {
-		return {
-			on: this.isOnControlled() ? this.props.on : this.state.on
-		};
-	};
+	// We'll also need a `getState` method here that returns a
+	// state object that has state from both internal state (`this.state`)
+	// as well as external state (`this.props`).
+	getState(state = this.state) {
+		return Object.entries(state).reduce((combinedState, [key, value]) => {
+			if (this.isControlled(key)) {
+				combinedState[key] = this.props[key];
+			} else {
+				combinedState[key] = value;
+			}
+
+			return combinedState;
+		}, {});
+	}
 
 	/*
 		- This function serves as our state reducer
 		- It calls the set state after filtering the changes through the state reducer passed by the parent
 	*/
 	internalSetState(changes, callback) {
-		this.setState(state => {
-			// handles function set state calls
-			const changesObject =
-				typeof changes === "function" ? changes(state) : changes;
+		let allChanges;
 
-			// apply state reducer
-			const reducedState = this.props.stateReducer(state, changesObject) || {};
+		this.setState(
+			state => {
+				const combinedState = this.getState(state);
 
-			// remove the type so it's not set into state
-			// We've disabled linting for the next line but remember to not make this the norm, the line below is an edge case
-			const { type: ignoredType, ...onlyChanges } = reducedState; // eslint-disable-line
+				// handles function set state calls
+				const changesObject =
+					typeof changes === "function" ? changes(combinedState) : changes;
 
-			return Object.keys(onlyChanges).length ? onlyChanges : null;
-		}, callback);
+				// apply state reducer
+				allChanges =
+					this.props.stateReducer(combinedState, changesObject) || {};
+
+				// remove the type so it's not set into state
+				// We've disabled linting for the next line but remember to not make this the norm, the line below is an edge case
+				const { type: ignoredType, ...onlyChanges } = allChanges; // eslint-disable-line
+
+				const nonControlledChanges = Object.keys(combinedState).reduce(
+					(newChanges, stateKey) => {
+						if (!this.isControlled(stateKey)) {
+							newChanges[stateKey] = Object.prototype.hasOwnProperty.call(
+								onlyChanges,
+								stateKey
+							)
+								? onlyChanges[stateKey]
+								: combinedState[stateKey];
+						}
+						return newChanges;
+					},
+					{}
+				);
+
+				// And we only return the non controlled values to set the state contolled by this component alone
+				return Object.keys(nonControlledChanges || {}).length
+					? nonControlledChanges
+					: null;
+			},
+			() => {
+				// In the setState callback, we first fire the prop of the parent component with the current set of state changes and the current state
+				this.props.onStateChange(allChanges, this.getStateAndHelpers());
+				callback();
+			}
+		);
 	}
 
 	toggle = ({ type = Toggle.stateChangeTypes.toggle } = {}) => {
-		// 🐨 if the toggle is controlled, then we shouldn't
-		// be updating state. Instead we should just call
-		// `this.props.onToggle` with what the state should be
-		if (this.isOnControlled()) {
-			this.props.onToggle(!this.getState().on);
-		} else {
-			this.internalSetState(
-				({ on }) => ({ type, on: !on }),
-				() => {
-					this.props.onToggle(this.getState().on);
-				}
-			);
-		}
+		this.internalSetState(
+			({ on }) => ({ type, on: !on }),
+			() => {
+				this.props.onToggle(this.getState().on);
+			}
+		);
 	};
 
 	reset = () =>
@@ -111,6 +144,7 @@ Toggle.propTypes = {
 	initialOn: PropTypes.bool.isRequired,
 	onReset: PropTypes.func.isRequired,
 	stateReducer: PropTypes.func.isRequired,
+	onStateChange: PropTypes.func.isRequired,
 	on: PropTypes.bool
 };
 
