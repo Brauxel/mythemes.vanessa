@@ -12,6 +12,15 @@ class Toggle extends Component {
 	// Lets define and initial state that can be used to initiate the reset the system, this makes large initial states easy to control in one place.
 	initialState = { on: this.props.initialOn };
 
+	// Any time I use a string as an identifier for a type,
+	// I prefer to give it a variable name. That way folks who
+	// want to reference the type can do so using variable which
+	// will help mitigate the problems of indirection.
+	static stateChangeTypes = {
+		reset: "__toggle_reset__",
+		toggle: "__toggle_toggle__"
+	};
+
 	/*
     	- We can make use of @babel/plugin-proposal-class-properties that is set in .babelrc to avoid declaring the state and super(props) in the class constructor as is the usual norm
   	*/
@@ -27,30 +36,35 @@ class Toggle extends Component {
 			const changesObject =
 				typeof changes === "function" ? changes(state) : changes;
 
+			// apply state reducer
 			const reducedState = this.props.stateReducer(state, changesObject) || {};
 
-			return Object.keys(reducedState).length ? reducedState : null;
+			// remove the type so it's not set into state
+			// We've disabled linting for the next line but remember to not make this the norm, the line below is an edge case
+			const { type: ignoredType, ...onlyChanges } = reducedState; // eslint-disable-line
+
+			return Object.keys(onlyChanges).length ? onlyChanges : null;
 		}, callback);
 	}
 
-	toggle = () => {
+	toggle = ({ type = Toggle.stateChangeTypes.toggle } = {}) => {
 		this.internalSetState(
-			({ on }) => ({ on: !on }),
+			({ on }) => ({ type, on: !on }),
 			() => {
 				this.props.onToggle(this.state.on);
 			}
 		);
 	};
 
-	reset = () => {
-		this.internalSetState(this.initialState, () => {
-			this.props.onReset(this.initialState);
-		});
-	};
+	reset = () =>
+		this.internalSetState(
+			{ ...this.initialState, type: Toggle.stateChangeTypes.reset },
+			() => this.props.onReset(this.initialState)
+		);
 
 	getTogglerProps = ({ onClick, ...props }) => ({
 		"aria-expanded": this.state.on,
-		onClick: callAll(onClick, this.toggle),
+		onClick: callAll(onClick, () => this.toggle()), // this.toggle is called as a function in this case as it defines the type as an argument
 		...props
 	});
 

@@ -31,6 +31,10 @@ class Usage extends Component {
 	};
 
 	toggleStateReducer = (state, changes) => {
+		if (changes.type === "forced") {
+			return changes;
+		}
+
 		if (this.state.timesClicked >= 4) {
 			return { ...changes, on: false };
 		}
@@ -48,7 +52,7 @@ class Usage extends Component {
 				onReset={this.handleReset}
 				onToggle={this.handleToggle}
 			>
-				{({ on, getTogglerProps, reset }) => (
+				{({ on, getTogglerProps, toggle, reset }) => (
 					<div>
 						{on ? "The button is on" : "The button is off"}
 						<ToggleSwitch {...getTogglerProps({ on })} />
@@ -60,6 +64,9 @@ class Usage extends Component {
 							})}
 						>
 							{on ? "on" : "off"}
+						</button>
+						<button onClick={() => toggle({ type: "forced" })}>
+							Force Toggle
 						</button>
 						<button onClick={() => reset()}>Reset</button>
 						{timesClicked >= 4 ? (
