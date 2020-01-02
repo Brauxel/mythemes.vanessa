@@ -4,11 +4,11 @@ import "../../static/css/resets.css";
 import { Raleway, Roboto } from "./fontEmbedding/";
 import Elements from "./elements";
 
-const Styles = () => (
+const Styles = props => (
 	<Fragment>
 		<Raleway />
 		<Roboto />
-		<Elements />
+		<Elements {...props} />
 	</Fragment>
 );
 

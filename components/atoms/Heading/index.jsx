@@ -8,7 +8,8 @@ Heading.propTypes = {
 	textAlign: PropTypes.string,
 	fontFamily: PropTypes.string,
 	fontSize: PropTypes.string,
-	iPadfontSize: PropTypes.string,
+	marginTop: PropTypes.string,
+	iPadFontSizes: PropTypes.string,
 	textTransform: PropTypes.string,
 	as: PropTypes.string,
 	children: PropTypes.oneOfType([

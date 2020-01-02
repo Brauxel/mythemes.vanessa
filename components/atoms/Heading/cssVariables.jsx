@@ -14,4 +14,13 @@ const fontSizes = {
 	h6: "0.8rem"
 };
 
-export { fontSizes };
+const iPadFontSizes = {
+	h1: "4.8rem",
+	h2: "3.6rem",
+	h3: "2.4rem",
+	h4: "2.2rem",
+	h5: "1.8rem",
+	h6: "1.6rem"
+};
+
+export { fontSizes, iPadFontSizes };
