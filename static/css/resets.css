@@ -62,8 +62,7 @@ html {overflow-y: scroll;}
 ul {list-style: none;}
 
 ul, ol {
-	margin-left: 10px;
-	margin-right: 10px;
+	margin: 0;
 }
 
 blockquote, q {quotes: none;}

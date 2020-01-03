@@ -5,10 +5,12 @@ import Toggle from "../components/containers/ToggleContainer/";
 import SiteContainer from "../components/containers/SiteContainer/";
 import SectionContainer from "../components/containers/SectionContainer/";
 
+import { List, ListItem } from "../components/ui/";
+
 const Elements = () => (
 	<main>
 		<SiteContainer>
-			<Styles fontFamily="Raleway" />
+			<Styles />
 
 			<SectionContainer>
 				<Heading as="h2" textAlign="center">
@@ -84,6 +86,18 @@ const Elements = () => (
 					There are many variations of passages of Lorem Ipsum available, but
 					the majority have suffered.
 				</Text>
+
+				<Text>
+					There are many variations of passages of Lorem Ipsum available, but
+					the majority have suffered.
+				</Text>
+
+				<List>
+					<ListItem>professional studio photography</ListItem>
+					<ListItem>some styles web design like Picasso wide</ListItem>
+					<ListItem>team like typography and proffesional tips</ListItem>
+					<ListItem>branding, logo, infographics design</ListItem>
+				</List>
 			</SectionContainer>
 
 			<SectionContainer>
