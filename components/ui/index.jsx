@@ -1,4 +1,5 @@
+import Text from "../atoms/Text/";
 import List from "../molecules/List/";
 import ListItem from "../atoms/ListItem/";
 
-export { List, ListItem };
+export { Text, List, ListItem };

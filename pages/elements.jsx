@@ -1,11 +1,11 @@
 import Styles from "../components/styles/";
-import Text from "../components/atoms/Text/";
+//import Text from "../components/atoms/Text/";
 import Heading from "../components/atoms/Heading/";
 import Toggle from "../components/containers/ToggleContainer/";
 import SiteContainer from "../components/containers/SiteContainer/";
 import SectionContainer from "../components/containers/SectionContainer/";
 
-import { List, ListItem } from "../components/ui/";
+import { List, ListItem, Text } from "../components/ui/";
 import { faPhotoVideo } from "@fortawesome/free-solid-svg-icons";
 import { faCommentAlt } from "@fortawesome/free-regular-svg-icons";
 
@@ -19,7 +19,7 @@ const Elements = () => (
 					Typography
 				</Heading>
 
-				<Text>
+				<Text color="red">
 					There are many variations of passages of Lorem Ipsum available, but
 					the majority have suffered alteration in some form, by injected
 					humour, or randomised words which don&apos;t look even slightly
@@ -44,7 +44,9 @@ const Elements = () => (
 			</SectionContainer>
 
 			<SectionContainer>
-				<Heading as="h2">Heading 2</Heading>
+				<Heading as="h2" color="red">
+					Heading 2
+				</Heading>
 				<Text>
 					There are many variations of passages of Lorem Ipsum available, but
 					the majority have suffered.
