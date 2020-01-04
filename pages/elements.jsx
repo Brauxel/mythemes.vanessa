@@ -6,6 +6,8 @@ import SiteContainer from "../components/containers/SiteContainer/";
 import SectionContainer from "../components/containers/SectionContainer/";
 
 import { List, ListItem } from "../components/ui/";
+import { faPhotoVideo } from "@fortawesome/free-solid-svg-icons";
+import { faCommentAlt } from "@fortawesome/free-regular-svg-icons";
 
 const Elements = () => (
 	<main>
@@ -82,11 +84,20 @@ const Elements = () => (
 			</SectionContainer>
 
 			<SectionContainer>
-				<Text textAlign="center">
+				<Text>
 					There are many variations of passages of Lorem Ipsum available, but
 					the majority have suffered.
 				</Text>
 
+				<List as="ol">
+					<ListItem>professional studio photography</ListItem>
+					<ListItem>some styles web design like Picasso wide</ListItem>
+					<ListItem>team like typography and proffesional tips</ListItem>
+					<ListItem>branding, logo, infographics design</ListItem>
+				</List>
+			</SectionContainer>
+
+			<SectionContainer>
 				<Text>
 					There are many variations of passages of Lorem Ipsum available, but
 					the majority have suffered.
@@ -95,6 +106,31 @@ const Elements = () => (
 				<List>
 					<ListItem>professional studio photography</ListItem>
 					<ListItem>some styles web design like Picasso wide</ListItem>
+					<ListItem>team like typography and proffesional tips</ListItem>
+					<ListItem>branding, logo, infographics design</ListItem>
+				</List>
+			</SectionContainer>
+
+			<SectionContainer>
+				<Text>
+					There are many variations of passages of Lorem Ipsum available, but
+					the majority have suffered.
+				</Text>
+
+				<List type="image">
+					<ListItem
+						src={faPhotoVideo}
+						size="2x"
+						imageBorderSize="1px"
+						imagePadding={0.25}
+					>
+						professional studio photography
+					</ListItem>
+
+					<ListItem src={faCommentAlt} size="2x">
+						some styles web design like Picasso wide
+					</ListItem>
+
 					<ListItem>team like typography and proffesional tips</ListItem>
 					<ListItem>branding, logo, infographics design</ListItem>
 				</List>

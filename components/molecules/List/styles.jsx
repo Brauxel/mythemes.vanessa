@@ -11,7 +11,8 @@ const unOrderedList = `
 
 const List = styled.ul`
 	list-style: none;
-	${props => (props.as === "ol" ? orderedList : unOrderedList)}
+	${props => (props.as === "ol" ? orderedList : unOrderedList)};
+	${props => (props.type === "image" ? "padding-left: 0" : "")};
 `;
 
 export default List;

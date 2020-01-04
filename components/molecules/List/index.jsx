@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import React from "react";
 
 const List = props => (
-	<ListComponent as={props.as}>
+	<ListComponent as={props.as} type={props.type}>
 		{React.Children.map(props.children, child =>
 			React.cloneElement(child, {
 				type: props.type ? props.type : props.as === "ul" ? "disc" : "decimal"
@@ -19,7 +19,7 @@ List.defaultProps = {
 
 List.propTypes = {
 	as: PropTypes.string.isRequired,
-	type: PropTypes.oneOf(["decimal", "disc", "custom"]),
+	type: PropTypes.oneOf(["decimal", "disc", "image"]),
 	children: PropTypes.oneOfType([
 		PropTypes.string,
 		PropTypes.array,
