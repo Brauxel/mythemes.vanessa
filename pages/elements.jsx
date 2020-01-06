@@ -206,7 +206,6 @@ const Elements = () => (
 				</Heading>
 
 				<Tabs
-					initialActive="2"
 					onToggle={(state = {}) => {
 						console.log("onToggle in Elements", state);
 					}}
