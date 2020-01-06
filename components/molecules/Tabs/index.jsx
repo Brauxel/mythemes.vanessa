@@ -97,7 +97,11 @@ class Tabs extends Component {
 	}
 
 	toggle = (toggleValues = {}) => {
-		this.internalSetState(toggleValues, () => {});
+		this.internalSetState(toggleValues, () => {
+			typeof this.props.onToggle === "function"
+				? this.props.onToggle(this.getState())
+				: "";
+		});
 	};
 
 	// Lets define and initial state that can be used to initiate the reset the system, this makes large initial states easy to control in one place.
@@ -142,7 +146,8 @@ Tabs.propTypes = {
 	]).isRequired,
 	stateReducer: PropTypes.func.isRequired,
 	onStateChange: PropTypes.func.isRequired,
-	initialActive: PropTypes.string.isRequired
+	initialActive: PropTypes.string.isRequired,
+	onToggle: PropTypes.func
 };
 
 export default Tabs;
