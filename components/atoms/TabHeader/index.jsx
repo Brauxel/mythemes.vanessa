@@ -1,6 +1,7 @@
 import { Component } from "react";
 import PropTypes from "prop-types";
 import TabContext from "../../contexts/TabContext";
+import TabHeaderComp from "./styles";
 
 class TabHeader extends Component {
 	toggle = () => {
@@ -13,7 +14,7 @@ class TabHeader extends Component {
 		return (
 			<TabContext.Consumer>
 				{({ currentActive, toggle }) => (
-					<div
+					<TabHeaderComp
 						className={
 							currentActive.toString() === id
 								? "tab-header active"
@@ -26,7 +27,7 @@ class TabHeader extends Component {
 						}
 					>
 						{this.props.children}
-					</div>
+					</TabHeaderComp>
 				)}
 			</TabContext.Consumer>
 		);

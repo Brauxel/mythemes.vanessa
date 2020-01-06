@@ -1,12 +1,17 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import TabContext from "../../contexts/TabContext";
+import TabsComponent from "./styles";
 
 class Tabs extends Component {
 	static defaultProps = {
 		stateReducer: (state, changes) => changes,
 		onStateChange: () => {}
 	};
+
+	componentDidUpdate(prevProps, prevState) {
+		console.log("Tabs component did update");
+	}
 
 	// let's add a function that can determine whether
 	// the a prop is controlled. Call it `isControlled`.
@@ -36,8 +41,6 @@ class Tabs extends Component {
 
 		this.setState(
 			state => {
-				console.log("set state in Tabs");
-
 				// Lets filter out the controlled props
 				let combinedState = this.getState(state);
 
@@ -73,6 +76,10 @@ class Tabs extends Component {
 					{}
 				);
 
+				// We don't change the state of the current component if the currentActive tab does not change
+				if (nonControlledChanges.currentActive === combinedState.currentActive)
+					return null;
+
 				// And we only return the non controlled values to set the state contolled by this component alone
 				// If the nonControlledChanges object is empty, we return NULL as it prevents a re-render
 				return Object.keys(nonControlledChanges || {}).length
@@ -99,8 +106,8 @@ class Tabs extends Component {
 	// Lets define and initial state that can be used to initiate the reset the system, this makes large initial states easy to control in one place.
 	initialState = {
 		currentActive: "1",
-		toggle: this.toggle,
-		getTogglerProps: this.getTogglerProps
+		toggle: this.toggle
+		//getTogglerProps: this.getTogglerProps
 	};
 
 	/*
@@ -112,8 +119,8 @@ class Tabs extends Component {
 	getStateAndHelpers() {
 		return {
 			currentActive: this.getState().currentActive,
-			toggle: this.toggle,
-			getTogglerProps: this.getTogglerProps
+			toggle: this.toggle
+			//getTogglerProps: this.getTogglerProps
 		};
 	}
 
@@ -121,7 +128,11 @@ class Tabs extends Component {
 		const { children } = this.props;
 		const ui = typeof children === "function" ? children(this.state) : children;
 
-		return <TabContext.Provider value={this.state}>{ui}</TabContext.Provider>;
+		return (
+			<TabContext.Provider value={this.state}>
+				<TabsComponent>{ui}</TabsComponent>
+			</TabContext.Provider>
+		);
 	}
 }
 

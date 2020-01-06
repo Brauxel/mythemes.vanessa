@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import TabContext from "../../contexts/TabContext";
+import TabContentComp from "./styles";
 
 class TabContent extends Component {
 	render() {
@@ -8,7 +9,9 @@ class TabContent extends Component {
 			<TabContext.Consumer>
 				{({ currentActive }) =>
 					currentActive.toString() === this.props.id ? (
-						<div className="tab-content">{this.props.children}</div>
+						<TabContentComp className="tab-content">
+							{this.props.children}
+						</TabContentComp>
 					) : (
 						""
 					)
