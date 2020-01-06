@@ -5,7 +5,16 @@ import Toggle from "../components/containers/ToggleContainer/";
 import SiteContainer from "../components/containers/SiteContainer/";
 import SectionContainer from "../components/containers/SectionContainer/";
 
-import { List, ListItem, Text, Heading } from "../components/ui/";
+import {
+	List,
+	ListItem,
+	Text,
+	Heading,
+	Tabs,
+	Tab,
+	TabHeader,
+	TabContent
+} from "../components/ui/";
 import { faPhotoVideo } from "@fortawesome/free-solid-svg-icons";
 import { faCommentAlt } from "@fortawesome/free-regular-svg-icons";
 
@@ -189,6 +198,40 @@ const Elements = () => (
 					to be sure there isn&apos;t anything embarrassing hidden in the middle
 					of text.
 				</Text>
+			</SectionContainer>
+
+			<SectionContainer>
+				<Heading as="h3" textAlign="center">
+					Tabs
+				</Heading>
+
+				<Tabs>
+					{/*({ active }) => (
+						<Tab isActive={true}>
+							<TabHeader>Introduction</TabHeader>
+
+							<TabContent>test - {active}</TabContent>
+						</Tab>
+					)*/}
+
+					<Tab isActive={true} id="1">
+						<TabHeader>Introduction</TabHeader>
+
+						<TabContent>test</TabContent>
+					</Tab>
+
+					<Tab id="2">
+						<TabHeader>Services</TabHeader>
+
+						<TabContent>Services Content</TabContent>
+					</Tab>
+
+					<Tab id="3">
+						<TabHeader>Our News</TabHeader>
+
+						<TabContent>Our News Content</TabContent>
+					</Tab>
+				</Tabs>
 			</SectionContainer>
 
 			<SectionContainer>
