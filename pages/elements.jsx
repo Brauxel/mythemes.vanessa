@@ -205,16 +205,8 @@ const Elements = () => (
 					Tabs
 				</Heading>
 
-				<Tabs>
-					{/*({ active }) => (
-						<Tab isActive={true}>
-							<TabHeader>Introduction</TabHeader>
-
-							<TabContent>test - {active}</TabContent>
-						</Tab>
-					)*/}
-
-					<Tab isActive={true} id="1">
+				<Tabs initialActive="2">
+					<Tab id="1">
 						<TabHeader>Introduction</TabHeader>
 
 						<TabContent>test</TabContent>

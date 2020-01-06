@@ -6,7 +6,8 @@ import TabsComponent from "./styles";
 class Tabs extends Component {
 	static defaultProps = {
 		stateReducer: (state, changes) => changes,
-		onStateChange: () => {}
+		onStateChange: () => {},
+		initialActive: "1"
 	};
 
 	componentDidUpdate(prevProps, prevState) {
@@ -99,13 +100,9 @@ class Tabs extends Component {
 		this.internalSetState(toggleValues, () => {});
 	};
 
-	getTabProps = () => {
-		console.log("Tabs get Tab props");
-	};
-
 	// Lets define and initial state that can be used to initiate the reset the system, this makes large initial states easy to control in one place.
 	initialState = {
-		currentActive: "1",
+		currentActive: this.props.initialActive,
 		toggle: this.toggle
 		//getTogglerProps: this.getTogglerProps
 	};
@@ -120,7 +117,6 @@ class Tabs extends Component {
 		return {
 			currentActive: this.getState().currentActive,
 			toggle: this.toggle
-			//getTogglerProps: this.getTogglerProps
 		};
 	}
 
@@ -145,7 +141,8 @@ Tabs.propTypes = {
 		PropTypes.func
 	]).isRequired,
 	stateReducer: PropTypes.func.isRequired,
-	onStateChange: PropTypes.func.isRequired
+	onStateChange: PropTypes.func.isRequired,
+	initialActive: PropTypes.string.isRequired
 };
 
 export default Tabs;
