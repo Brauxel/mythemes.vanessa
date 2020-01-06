@@ -107,7 +107,8 @@ class Tabs extends Component {
 	// Lets define and initial state that can be used to initiate the reset the system, this makes large initial states easy to control in one place.
 	initialState = {
 		currentActive: this.props.initialActive,
-		toggle: this.toggle
+		toggle: this.toggle,
+		type: this.props.type || "primary"
 		//getTogglerProps: this.getTogglerProps
 	};
 
@@ -130,7 +131,7 @@ class Tabs extends Component {
 
 		return (
 			<TabContext.Provider value={this.state}>
-				<TabsComponent>{ui}</TabsComponent>
+				<TabsComponent tabType={this.state.type}>{ui}</TabsComponent>
 			</TabContext.Provider>
 		);
 	}
@@ -144,6 +145,7 @@ Tabs.propTypes = {
 		PropTypes.element,
 		PropTypes.func
 	]).isRequired,
+	type: PropTypes.string,
 	stateReducer: PropTypes.func.isRequired,
 	onStateChange: PropTypes.func.isRequired,
 	initialActive: PropTypes.string.isRequired,

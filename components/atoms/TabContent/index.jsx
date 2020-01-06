@@ -7,9 +7,9 @@ class TabContent extends Component {
 	render() {
 		return (
 			<TabContext.Consumer>
-				{({ currentActive }) =>
+				{({ currentActive, type }) =>
 					currentActive.toString() === this.props.id ? (
-						<TabContentComp className="tab-content">
+						<TabContentComp tabType={type} className="tab-content">
 							{this.props.children}
 						</TabContentComp>
 					) : (

@@ -6,8 +6,10 @@ const styles = styled.div`
 	flex-basis: 100%;
 	flex-grow: 1;
 	padding-top: 2rem;
-	border-top: 1px solid #000;
-	margin-top: -1px;
+	margin-top: ${props => (props.tabType === "secondary" ? "inherit" : "-1px")};
+	${props => (props.tabType === "secondary" ? "background: #ffffff" : "")};
+	${props =>
+		props.tabType === "secondary" ? "" : "border-top: 1px solid #000;"};
 `;
 
 export default styles;

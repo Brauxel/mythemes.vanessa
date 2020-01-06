@@ -213,7 +213,63 @@ const Elements = () => (
 					<Tab id="1">
 						<TabHeader>Introduction</TabHeader>
 
-						<TabContent>test</TabContent>
+						<TabContent>
+							<Text>
+								Combined with a handful of model sentence structures, to
+								generate Lorem Ipsum which looks reasonable.
+							</Text>
+							<Text>
+								The generated Lorem Ipsum is therefore always free from
+								repetition, injected humour, or non-characteristic words etc.
+							</Text>
+							<Text>
+								Combined with a handful of model sentence structures, to
+								generate Lorem Ipsum which looks reasonable.
+							</Text>
+
+							<img src="/static/images/Nasa01.jpg" width="400" />
+						</TabContent>
+					</Tab>
+
+					<Tab id="2">
+						<TabHeader>Services</TabHeader>
+
+						<TabContent>Services Content</TabContent>
+					</Tab>
+
+					<Tab id="3">
+						<TabHeader>Our News</TabHeader>
+
+						<TabContent>Our News Content</TabContent>
+					</Tab>
+				</Tabs>
+			</SectionContainer>
+
+			<SectionContainer>
+				<Heading as="h3" textAlign="center">
+					Tabs
+				</Heading>
+
+				<Tabs type="secondary">
+					<Tab id="1">
+						<TabHeader>Introduction</TabHeader>
+
+						<TabContent>
+							<Text>
+								Combined with a handful of model sentence structures, to
+								generate Lorem Ipsum which looks reasonable.
+							</Text>
+							<Text>
+								The generated Lorem Ipsum is therefore always free from
+								repetition, injected humour, or non-characteristic words etc.
+							</Text>
+							<Text>
+								Combined with a handful of model sentence structures, to
+								generate Lorem Ipsum which looks reasonable.
+							</Text>
+
+							<img src="/static/images/Nasa01.jpg" width="400" />
+						</TabContent>
 					</Tab>
 
 					<Tab id="2">

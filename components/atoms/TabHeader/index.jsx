@@ -13,13 +13,10 @@ class TabHeader extends Component {
 
 		return (
 			<TabContext.Consumer>
-				{({ currentActive, toggle }) => (
+				{({ currentActive, toggle, type }) => (
 					<TabHeaderComp
-						className={
-							currentActive.toString() === id
-								? "tab-header active"
-								: "tab-header"
-						}
+						tabType={type}
+						active={currentActive.toString() === id}
 						onClick={() =>
 							toggle({
 								currentActive: id
