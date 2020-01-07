@@ -7,4 +7,17 @@ import TabHeader from "../atoms/TabHeader/";
 import Tab from "../atoms/Tab/";
 import TabContent from "../atoms/TabContent/";
 
-export { Heading, Text, List, ListItem, Tabs, Tab, TabHeader, TabContent };
+// Import Containers
+import FlexContainer from "../containers/FlexContainer/";
+
+export {
+	Heading,
+	Text,
+	List,
+	ListItem,
+	Tabs,
+	Tab,
+	TabHeader,
+	TabContent,
+	FlexContainer
+};

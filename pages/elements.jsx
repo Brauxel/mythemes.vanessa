@@ -13,7 +13,8 @@ import {
 	Tabs,
 	Tab,
 	TabHeader,
-	TabContent
+	TabContent,
+	FlexContainer
 } from "../components/ui/";
 import { faPhotoVideo } from "@fortawesome/free-solid-svg-icons";
 import { faCommentAlt } from "@fortawesome/free-regular-svg-icons";
@@ -214,20 +215,28 @@ const Elements = () => (
 						<TabHeader>Introduction</TabHeader>
 
 						<TabContent>
-							<Text>
-								Combined with a handful of model sentence structures, to
-								generate Lorem Ipsum which looks reasonable.
-							</Text>
-							<Text>
-								The generated Lorem Ipsum is therefore always free from
-								repetition, injected humour, or non-characteristic words etc.
-							</Text>
-							<Text>
-								Combined with a handful of model sentence structures, to
-								generate Lorem Ipsum which looks reasonable.
-							</Text>
+							<FlexContainer
+								id="test-id"
+								className="test-classname"
+								as="article"
+								styles={{
+									backgroundColor: "pink"
+								}}
+								mobileLandscapeStyles={{
+									backgroundColor: "black"
+								}}
+							>
+								<Text>
+									Combined with a handful of model sentence structures, to
+									generate Lorem Ipsum which looks reasonable.
+									<br /> The generated Lorem Ipsum is therefore always free from
+									repetition, injected humour, or non-characteristic words etc.
+									<br /> Combined with a handful of model sentence structures,
+									to generate Lorem Ipsum which looks reasonable.
+								</Text>
 
-							<img src="/static/images/Nasa01.jpg" width="400" />
+								<img src="/static/images/Nasa01.jpg" width="400" alt="Nasa" />
+							</FlexContainer>
 						</TabContent>
 					</Tab>
 
@@ -268,7 +277,7 @@ const Elements = () => (
 								generate Lorem Ipsum which looks reasonable.
 							</Text>
 
-							<img src="/static/images/Nasa01.jpg" width="400" />
+							<img src="/static/images/Nasa01.jpg" width="400" alt="Nasa" />
 						</TabContent>
 					</Tab>
 
