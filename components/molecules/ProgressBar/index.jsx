@@ -1,60 +1,65 @@
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import LineProgress from "./styles";
 
-import React, { Component } from "react";
-
 class ProgressBars extends Component {
-	state = { animationInited: false };
-
-	getProgress = () => {
-		const { initialAnimation, progress } = this.props;
-		const { animationInited } = this.state;
-
-		return !animationInited ? "0" : "0";
+	static defaultProps = {
+		barColor: "#C2E362",
+		backgroundColor: "#e0dee4"
 	};
 
+	progressInterval = 0;
+
+	state = { count: 0 };
+
 	componentDidMount() {
-		setTimeout(this.initAnimation, 300);
+		this.progressInterval = setInterval(this.initLineAnimation, 2);
 	}
 
-	initAnimation = () => {
-		this.setState({ animationInited: true });
+	componentWillUnmount() {
+		clearInterval(this.progressInterval);
+	}
+
+	initLineAnimation = () => {
+		this.setState(({ count }) => {
+			if (count > 50) {
+				return null;
+			}
+
+			return { count: count + 1 };
+		});
 	};
 
 	render() {
 		return (
-			<LineProgress id="line-progress" height="120" width="120">
-				<g className="progress-container">
-					<line x1="0" y1="50%" x2="100%" y2="50%" strokeWidth="30" />
-				</g>
+			<LineProgress id="line-progress" height="10px" width="100%">
+				<g className="progress-content">
+					<rect
+						x="0"
+						y="25%"
+						width="100%"
+						height="50%"
+						fill={this.props.backgroundColor}
+						className="background-rect"
+					/>
 
-				{this.state.animationInited ? (
-					<g className="progress-content">
-						<line
-							x1="0"
-							y1="50%"
-							x2="100%"
-							y2="50%"
-							stroke="#C2E362"
-							fill="transparent"
-							strokeDasharray="100%"
-							//strokeDashoffset={this.getProgress()}
-							strokeWidth="28"
-						/>
-					</g>
-				) : (
-					""
-				)}
-				<text className="percentage" x="40%" y="55%">
-					50%
-				</text>
+					<rect
+						x="0"
+						y="0"
+						width={this.state.count + "%"}
+						height="100%"
+						fill={this.props.barColor}
+					/>
+				</g>
 			</LineProgress>
 		);
 	}
 }
 
 ProgressBars.propTypes = {
-	toolTip: PropTypes.bool
+	toolTip: PropTypes.bool,
+	barColor: PropTypes.string.isRequired,
+	backgroundColor: PropTypes.string.isRequired
 };
 
 export default ProgressBars;

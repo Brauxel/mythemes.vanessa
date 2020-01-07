@@ -301,7 +301,7 @@ const Elements = () => (
 					Progress bars
 				</Heading>
 
-				<ProgressBar />
+				<ProgressBar barColor="green" backgroundColor="red" />
 			</SectionContainer>
 
 			<SectionContainer>
