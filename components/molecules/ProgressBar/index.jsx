@@ -21,8 +21,10 @@ class ProgressBars extends Component {
 	}
 
 	initLineAnimation = () => {
+		let { percentValue } = this.props;
+
 		this.setState(({ count }) => {
-			if (count > 50) {
+			if (count >= percentValue) {
 				return null;
 			}
 
@@ -32,7 +34,7 @@ class ProgressBars extends Component {
 
 	render() {
 		return (
-			<LineProgress id="line-progress" height="10px" width="100%">
+			<LineProgress height="10px" width="100%" className={this.props.className}>
 				<g className="progress-content">
 					<rect
 						x="0"
@@ -58,8 +60,10 @@ class ProgressBars extends Component {
 
 ProgressBars.propTypes = {
 	toolTip: PropTypes.bool,
+	percentValue: PropTypes.number.isRequired,
 	barColor: PropTypes.string.isRequired,
-	backgroundColor: PropTypes.string.isRequired
+	backgroundColor: PropTypes.string.isRequired,
+	className: PropTypes.string
 };
 
 export default ProgressBars;

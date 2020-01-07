@@ -301,7 +301,12 @@ const Elements = () => (
 					Progress bars
 				</Heading>
 
-				<ProgressBar barColor="green" backgroundColor="red" />
+				<ProgressBar
+					className="test-class"
+					barColor="green"
+					backgroundColor="red"
+					percentValue={70}
+				/>
 			</SectionContainer>
 
 			<SectionContainer>
