@@ -10,10 +10,6 @@ class Tabs extends Component {
 		initialActive: "1"
 	};
 
-	componentDidUpdate(prevProps, prevState) {
-		console.log("Tabs component did update");
-	}
-
 	// let's add a function that can determine whether
 	// the a prop is controlled. Call it `isControlled`.
 	isControlled(prop) {
@@ -37,7 +33,6 @@ class Tabs extends Component {
 	}
 
 	internalSetState(changes, callback) {
-		console.log("tabs internal set state", changes);
 		let allChanges;
 
 		this.setState(
@@ -88,7 +83,6 @@ class Tabs extends Component {
 					: null;
 			},
 			() => {
-				console.log("set state callback in Tabs");
 				// In the setState callback, we first fire the prop of the parent component with the current set of state changes and the current state
 				this.props.onStateChange(allChanges, this.getStateAndHelpers());
 				callback();

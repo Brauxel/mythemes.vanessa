@@ -4,10 +4,6 @@ import TabContext from "../../contexts/TabContext";
 import TabHeaderComp from "./styles";
 
 class TabHeader extends Component {
-	toggle = () => {
-		console.log("tab header toggle clicked");
-	};
-
 	render() {
 		const { id } = this.props;
 
@@ -33,7 +29,12 @@ class TabHeader extends Component {
 
 TabHeader.propTypes = {
 	isActive: PropTypes.bool,
-	id: PropTypes.string
+	id: PropTypes.string,
+	children: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.array,
+		PropTypes.element
+	]).isRequired
 };
 
 export default TabHeader;

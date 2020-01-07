@@ -22,7 +22,12 @@ class TabContent extends Component {
 }
 
 TabContent.propTypes = {
-	id: PropTypes.string
+	id: PropTypes.string,
+	children: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.array,
+		PropTypes.element
+	]).isRequired
 };
 
 export default TabContent;
