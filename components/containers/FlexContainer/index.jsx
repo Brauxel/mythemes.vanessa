@@ -1,9 +1,7 @@
 import FlexBox from "./styles";
 import PropTypes from "prop-types";
 
-const FlexContainer = props => {
-  const { children, ...cssObject } = props;
-
+const FlexContainer = ({ children, ...cssObject }) => {
   return <FlexBox {...cssObject}>{children}</FlexBox>;
 };
 

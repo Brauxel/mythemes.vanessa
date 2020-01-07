@@ -307,6 +307,8 @@ const Elements = () => (
 					backgroundColor="red"
 					percentValue={70}
 				/>
+
+				<ProgressBar percentValue={40} />
 			</SectionContainer>
 
 			<SectionContainer>

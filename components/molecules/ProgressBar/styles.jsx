@@ -3,7 +3,7 @@ import styled from "styled-components";
 const styles = styled.svg`
 	.progress-content {
 		rect {
-			transition: all 0.4s ease;
+			transition: width linear;
 
 			&.background-rect {
 				position: absolute;

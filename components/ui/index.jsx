@@ -7,6 +7,8 @@ import TabHeader from "../atoms/TabHeader/";
 import Tab from "../atoms/Tab/";
 import TabContent from "../atoms/TabContent/";
 import ProgressBar from "../molecules/ProgressBar/";
+import ToolTip from "../atoms/ToolTip/";
+import DownArrow from "../atoms/DownArrow/";
 
 // Import Containers
 import FlexContainer from "../containers/FlexContainer/";
@@ -21,5 +23,7 @@ export {
 	TabHeader,
 	TabContent,
 	ProgressBar,
+	ToolTip,
+	DownArrow,
 	FlexContainer
 };
