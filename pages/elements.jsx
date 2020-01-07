@@ -14,6 +14,7 @@ import {
 	Tab,
 	TabHeader,
 	TabContent,
+	ProgressBar,
 	FlexContainer
 } from "../components/ui/";
 import { faPhotoVideo } from "@fortawesome/free-solid-svg-icons";
@@ -293,6 +294,14 @@ const Elements = () => (
 						<TabContent>Our News Content</TabContent>
 					</Tab>
 				</Tabs>
+			</SectionContainer>
+
+			<SectionContainer>
+				<Heading as="h3" textAlign="center">
+					Progress bars
+				</Heading>
+
+				<ProgressBar />
 			</SectionContainer>
 
 			<SectionContainer>

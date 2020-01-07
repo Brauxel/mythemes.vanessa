@@ -6,6 +6,7 @@ import Tabs from "../molecules/Tabs/";
 import TabHeader from "../atoms/TabHeader/";
 import Tab from "../atoms/Tab/";
 import TabContent from "../atoms/TabContent/";
+import ProgressBar from "../molecules/ProgressBar/";
 
 // Import Containers
 import FlexContainer from "../containers/FlexContainer/";
@@ -19,5 +20,6 @@ export {
 	Tab,
 	TabHeader,
 	TabContent,
+	ProgressBar,
 	FlexContainer
 };
