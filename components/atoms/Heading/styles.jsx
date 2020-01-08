@@ -9,6 +9,7 @@ const styles = styled.h1`
 	font-size: ${props => fontSizes[props.as || "h1"]};
 	margin-bottom: 0.8rem;
 	font-family: "Raleway", Helvetica, Arial, sans-serif;
+	letter-spacing: 1rem;
 	${props => generateCSS(props.styles)}
 
 	@media ${minBreakpoints.mobileLandscape} {

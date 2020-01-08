@@ -48,6 +48,7 @@ const styles = styled.div`
 	text-transform: uppercase;
 	color: #000;
 	transition: color 0.2s ease-in 0.1s;
+	letter-spacing: 0.3rem;
 	${props => determineStyles(props.tabType, props.active)}
 
 	&:hover {
