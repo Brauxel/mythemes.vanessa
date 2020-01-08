@@ -9,6 +9,7 @@ import TabContent from "../atoms/TabContent/";
 import ProgressBar from "../molecules/ProgressBar/";
 import ToolTip from "../atoms/ToolTip/";
 import DownArrow from "../atoms/DownArrow/";
+import BlockQuote from "../atoms/BlockQuote/";
 
 // Import Containers
 import FlexContainer from "../containers/FlexContainer/";
@@ -26,6 +27,7 @@ export {
 	ProgressBar,
 	ToolTip,
 	DownArrow,
+	BlockQuote,
 	FlexContainer,
 	GridContainer
 };
