@@ -307,6 +307,7 @@ const Elements = () => (
 					backgroundColor="red"
 					percentValue={70}
 					progressTitle="Web Design"
+					animationInterval={5}
 					toolTipStyles={{
 						background: "red",
 						color: "green"

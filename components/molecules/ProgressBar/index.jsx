@@ -8,7 +8,8 @@ class ProgressBar extends Component {
 	static defaultProps = {
 		barColor: "#d20662",
 		backgroundColor: "#e0dee4",
-		showToolTip: true
+		showToolTip: true,
+		animationInterval: 30
 	};
 
 	progressInterval = 0;
@@ -16,7 +17,10 @@ class ProgressBar extends Component {
 	state = { count: 0 };
 
 	componentDidMount() {
-		this.progressInterval = setInterval(this.initLineAnimation, 30);
+		this.progressInterval = setInterval(
+			this.initLineAnimation,
+			this.props.animationInterval
+		);
 	}
 
 	componentWillUnmount() {
@@ -72,7 +76,7 @@ class ProgressBar extends Component {
 				{this.props.showToolTip ? (
 					<ToolTip
 						toolTipStyles={this.props.toolTipStyles}
-						toLeft={this.state.count - 2}
+						toLeft={this.state.count}
 						styles={{
 							top: this.props.progressTitle ? "-3rem" : "-5rem"
 						}}
@@ -95,7 +99,8 @@ ProgressBar.propTypes = {
 	className: PropTypes.string,
 	toolTipStyles: PropTypes.object,
 	progressTitle: PropTypes.string,
-	showToolTip: PropTypes.bool.isRequired
+	showToolTip: PropTypes.bool.isRequired,
+	animationInterval: PropTypes.number.isRequired
 };
 
 export default ProgressBar;
