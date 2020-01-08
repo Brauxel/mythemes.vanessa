@@ -5,7 +5,7 @@ const styles = styled.div`
 	margin-top: 6rem;
 	font-size: 1.2rem;
 
-	text {
+	.title {
 		text-transform: uppercase;
 		color: #43474d;
 	}

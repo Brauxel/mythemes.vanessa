@@ -12,6 +12,7 @@ import DownArrow from "../atoms/DownArrow/";
 
 // Import Containers
 import FlexContainer from "../containers/FlexContainer/";
+import GridContainer from "../containers/GridContainer/";
 
 export {
 	Heading,
@@ -25,5 +26,6 @@ export {
 	ProgressBar,
 	ToolTip,
 	DownArrow,
-	FlexContainer
+	FlexContainer,
+	GridContainer
 };

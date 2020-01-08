@@ -1,20 +1,29 @@
 import styled from "styled-components";
 import { fontSizes, iPadFontSizes } from "./cssVariables";
 import { minBreakpoints } from "../../styles/breakpoints";
+import { generateCSS } from "../../../helpers/utilities";
 
 const styles = styled.h1`
-	color ${props => props.color || "#43474d"};
-	text-align: ${props => props.textAlign || "inherit"};
-	text-transform: ${props => props.textTransform || "uppercase"};
-	font-size: ${props => props.fontSize || fontSizes[props.as || "h1"]};
-	margin-bottom: ${props => props.marginTop || "8px"};
-	font-family: ${props =>
-		props.fontFamily || "'Raleway', Helvetica, Arial, sans-serif"};
+	color: #43474d;
+	text-transform: uppercase;
+	font-size: ${props => fontSizes[props.as || "h1"]};
+	margin-bottom: 0.8rem;
+	font-family: "Raleway", Helvetica, Arial, sans-serif;
+	${props => generateCSS(props.styles)}
+
+	@media ${minBreakpoints.mobileLandscape} {
+		${props => generateCSS(props.mobileLandscapeStyles)}
+	}	
 
 	@media ${minBreakpoints.iPadPortrait} {
-		font-size: ${props => props.iPadFontSize || iPadFontSizes[props.as || "h1"]};
-		margin-bottom: ${props => props.iPadmarginTop || "10px"};
+		font-size: ${props => iPadFontSizes[props.as || "h1"]};
+		margin-bottom: 10px;
+		${props => generateCSS(props.iPadPortraitStyles)}
 	}
+
+	@media ${minBreakpoints.iPadLandscape} {
+		${props => generateCSS(props.iPadLandscapeStyles)}
+	}		
 `;
 
 export default styles;

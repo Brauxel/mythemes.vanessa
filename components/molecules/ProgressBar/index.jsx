@@ -43,7 +43,7 @@ class ProgressBar extends Component {
 		return (
 			<ProgressBarContainer>
 				{this.props.progressTitle ? (
-					<text>{this.props.progressTitle}</text>
+					<span className="title">{this.props.progressTitle}</span>
 				) : (
 					""
 				)}
