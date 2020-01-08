@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import HeadingComp from "./styles";
 
 const Heading = ({ children, as, ...cssProps }) => (
-	<HeadingComp as={as} styles={cssProps}>
+	<HeadingComp as={as} {...cssProps}>
 		{children}
 	</HeadingComp>
 );
