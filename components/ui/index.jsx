@@ -10,6 +10,10 @@ import ProgressBar from "../molecules/ProgressBar/";
 import ToolTip from "../atoms/ToolTip/";
 import DownArrow from "../atoms/DownArrow/";
 import BlockQuote from "../atoms/BlockQuote/";
+import Table from "../molecules/Table/";
+import TableHeader from "../atoms/TableHeader/";
+import TableRow from "../atoms/TableRow/";
+import TableColumn from "../atoms/TableColumn/";
 
 // Import Containers
 import FlexContainer from "../containers/FlexContainer/";
@@ -28,6 +32,10 @@ export {
 	ToolTip,
 	DownArrow,
 	BlockQuote,
+	Table,
+	TableHeader,
+	TableRow,
+	TableColumn,
 	FlexContainer,
 	GridContainer
 };

@@ -16,6 +16,10 @@ import {
 	TabContent,
 	ProgressBar,
 	BlockQuote,
+	Table,
+	TableHeader,
+	TableRow,
+	TableColumn,
 	FlexContainer,
 	GridContainer
 } from "../components/ui/";
@@ -367,6 +371,39 @@ const Elements = () => (
 					therefore always free from repetition, injected humour, or
 					non-characteristic words etc.
 				</Text>
+			</SectionContainer>
+
+			<SectionContainer
+				style={{
+					flexGrow: 1,
+					flexBasis: "50%",
+					padding: "2rem 2rem"
+				}}
+			>
+				<Heading
+					as="h3"
+					styles={{
+						textAlign: "center"
+					}}
+				>
+					Table
+				</Heading>
+
+				<Table>
+					<thead>
+						<TableRow>
+							<TableHeader>Column 1</TableHeader>
+							<TableHeader>Column 2</TableHeader>
+						</TableRow>
+					</thead>
+
+					<tbody>
+						<TableRow>
+							<TableColumn>Data 1</TableColumn>
+							<TableColumn>Data 2</TableColumn>
+						</TableRow>
+					</tbody>
+				</Table>
 			</SectionContainer>
 
 			<SectionContainer>
