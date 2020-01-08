@@ -38,6 +38,12 @@ class ProgressBar extends Component {
 	render() {
 		return (
 			<ProgressBarContainer>
+				{this.props.progressTitle ? (
+					<text>{this.props.progressTitle}</text>
+				) : (
+					""
+				)}
+
 				<LineProgress
 					height="10px"
 					width="100%"
@@ -66,7 +72,10 @@ class ProgressBar extends Component {
 				{this.props.showToolTip ? (
 					<ToolTip
 						toolTipStyles={this.props.toolTipStyles}
-						toLeft={this.state.count}
+						toLeft={this.state.count - 2}
+						styles={{
+							top: this.props.progressTitle ? "-3rem" : "-5rem"
+						}}
 					>
 						{this.state.count.toString() + "%"}
 					</ToolTip>
@@ -85,6 +94,7 @@ ProgressBar.propTypes = {
 	backgroundColor: PropTypes.string.isRequired,
 	className: PropTypes.string,
 	toolTipStyles: PropTypes.object,
+	progressTitle: PropTypes.string,
 	showToolTip: PropTypes.bool.isRequired
 };
 

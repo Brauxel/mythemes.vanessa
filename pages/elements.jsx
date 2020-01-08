@@ -306,13 +306,14 @@ const Elements = () => (
 					barColor="green"
 					backgroundColor="red"
 					percentValue={70}
+					progressTitle="Web Design"
 					toolTipStyles={{
 						background: "red",
 						color: "green"
 					}}
 				/>
 
-				<ProgressBar percentValue={40} showToolTip={false} />
+				<ProgressBar percentValue={40} showToolTip={true} />
 			</SectionContainer>
 
 			<SectionContainer>

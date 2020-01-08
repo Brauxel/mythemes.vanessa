@@ -4,6 +4,8 @@ import { generateCSS } from "../../../helpers/utilities";
 const outerComp = styled.span`
 	position: absolute;
 	top: -4rem;
+
+	${props => generateCSS(props.styles)}
 `;
 
 const innerComp = styled.span`

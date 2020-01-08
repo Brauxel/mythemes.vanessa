@@ -6,8 +6,8 @@ import {
 import DownArrow from "../../atoms/DownArrow/";
 import FlexContainer from "../../containers/FlexContainer/";
 
-const ToolTip = ({ children, toLeft, toolTipStyles, ...cssProps }) => (
-	<ToolTipOuterComp style={{ left: toLeft + "%" }} {...cssProps}>
+const ToolTip = ({ children, toLeft, toolTipStyles, styles }) => (
+	<ToolTipOuterComp style={{ left: toLeft + "%" }} styles={styles}>
 		<FlexContainer
 			styles={{
 				display: "flex",
@@ -43,7 +43,8 @@ ToolTip.propTypes = {
 		PropTypes.element
 	]).isRequired,
 	toLeft: PropTypes.number.isRequired,
-	toolTipStyles: PropTypes.object
+	toolTipStyles: PropTypes.object,
+	styles: PropTypes.object
 };
 
 export default ToolTip;
