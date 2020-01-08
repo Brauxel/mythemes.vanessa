@@ -6,7 +6,7 @@ import {
 import DownArrow from "../../atoms/DownArrow/";
 import FlexContainer from "../../containers/FlexContainer/";
 
-const ToolTip = ({ children, toLeft, ...cssProps }) => (
+const ToolTip = ({ children, toLeft, toolTipStyles, ...cssProps }) => (
 	<ToolTipOuterComp style={{ left: toLeft + "%" }} {...cssProps}>
 		<FlexContainer
 			styles={{
@@ -15,11 +15,21 @@ const ToolTip = ({ children, toLeft, ...cssProps }) => (
 				alignItems: "center"
 			}}
 		>
-			<ToolTipInnerComp>{children}</ToolTipInnerComp>
-			<DownArrow />
+			<ToolTipInnerComp styles={toolTipStyles}>{children}</ToolTipInnerComp>
+			<DownArrow
+				styles={{
+					borderTopColor: extractColor(toolTipStyles)
+				}}
+			/>
 		</FlexContainer>
 	</ToolTipOuterComp>
 );
+
+function extractColor(styles = {}) {
+	return Object.prototype.hasOwnProperty.call(styles, "background")
+		? styles.background
+		: "#454652";
+}
 
 // Specifies the default values for props:
 ToolTip.defaultProps = {
@@ -32,7 +42,8 @@ ToolTip.propTypes = {
 		PropTypes.array,
 		PropTypes.element
 	]).isRequired,
-	toLeft: PropTypes.number.isRequired
+	toLeft: PropTypes.number.isRequired,
+	toolTipStyles: PropTypes.object
 };
 
 export default ToolTip;

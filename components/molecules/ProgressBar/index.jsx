@@ -4,10 +4,11 @@ import LineProgress from "./styles";
 import ToolTip from "../../atoms/ToolTip/";
 import ProgressBarContainer from "./ProgressBarContainer";
 
-class ProgressBars extends Component {
+class ProgressBar extends Component {
 	static defaultProps = {
 		barColor: "#d20662",
-		backgroundColor: "#e0dee4"
+		backgroundColor: "#e0dee4",
+		showToolTip: true
 	};
 
 	progressInterval = 0;
@@ -62,20 +63,29 @@ class ProgressBars extends Component {
 					</g>
 				</LineProgress>
 
-				<ToolTip toLeft={this.state.count}>
-					{this.state.count.toString() + "%"}
-				</ToolTip>
+				{this.props.showToolTip ? (
+					<ToolTip
+						toolTipStyles={this.props.toolTipStyles}
+						toLeft={this.state.count}
+					>
+						{this.state.count.toString() + "%"}
+					</ToolTip>
+				) : (
+					""
+				)}
 			</ProgressBarContainer>
 		);
 	}
 }
 
-ProgressBars.propTypes = {
+ProgressBar.propTypes = {
 	toolTip: PropTypes.bool,
 	percentValue: PropTypes.number.isRequired,
 	barColor: PropTypes.string.isRequired,
 	backgroundColor: PropTypes.string.isRequired,
-	className: PropTypes.string
+	className: PropTypes.string,
+	toolTipStyles: PropTypes.object,
+	showToolTip: PropTypes.bool.isRequired
 };
 
-export default ProgressBars;
+export default ProgressBar;

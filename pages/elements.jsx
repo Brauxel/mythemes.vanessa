@@ -306,9 +306,13 @@ const Elements = () => (
 					barColor="green"
 					backgroundColor="red"
 					percentValue={70}
+					toolTipStyles={{
+						background: "red",
+						color: "green"
+					}}
 				/>
 
-				<ProgressBar percentValue={40} />
+				<ProgressBar percentValue={40} showToolTip={false} />
 			</SectionContainer>
 
 			<SectionContainer>
