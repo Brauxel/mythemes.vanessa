@@ -383,10 +383,12 @@ const Elements = () => (
 						</Text>
 
 						<BlockQuote>
-							All the Lorem Ipsum generators on the Internet tend to repeat
-							predefined chunks as necessary, making this the first true
-							generator on the Internet. It uses a dictionary of over 200 Latin
-							words, combined with a handful.
+							<em>
+								All the Lorem Ipsum generators on the Internet tend to repeat
+								predefined chunks as necessary, making this the first true
+								generator on the Internet. It uses a dictionary of over 200
+								Latin words, combined with a handful.
+							</em>
 						</BlockQuote>
 
 						<Text>

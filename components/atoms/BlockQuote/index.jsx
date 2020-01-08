@@ -1,6 +1,11 @@
 import PropTypes from "prop-types";
+import BlockQuoteComp from "./styles";
 
-const BlockQuote = ({ children }) => <blockquote>{children}</blockquote>;
+const BlockQuote = ({ children, as, ...cssProps }) => (
+	<BlockQuoteComp as={as} {...cssProps}>
+		{children}
+	</BlockQuoteComp>
+);
 
 BlockQuote.propTypes = {
 	as: PropTypes.string,
