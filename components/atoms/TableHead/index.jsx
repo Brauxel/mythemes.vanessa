@@ -1,21 +1,18 @@
 import PropTypes from "prop-types";
-import TableColumnComp from "./styles";
+import TableHeadComp from "./styles";
 
-const TableColumn = ({ children, as, ...cssProps }) => (
-	<TableColumnComp as={as} {...cssProps}>
+const TableHead = ({ children, as, ...cssProps }) => (
+	<TableHeadComp as={as} {...cssProps}>
 		{children}
-	</TableColumnComp>
+	</TableHeadComp>
 );
 
-TableColumn.propTypes = {
+TableHead.propTypes = {
 	as: PropTypes.string,
 	styles: PropTypes.object,
 	mobileLandscapeStyles: PropTypes.object,
 	iPadPortraitStyles: PropTypes.object,
 	iPadLandscapeStyles: PropTypes.object,
-	colSpan: PropTypes.string,
-	rowSpan: PropTypes.string,
-	id: PropTypes.string,
 	children: PropTypes.oneOfType([
 		PropTypes.string,
 		PropTypes.array,
@@ -23,4 +20,4 @@ TableColumn.propTypes = {
 	]).isRequired
 };
 
-export default TableColumn;
+export default TableHead;

@@ -13,6 +13,9 @@ TableHeader.propTypes = {
 	mobileLandscapeStyles: PropTypes.object,
 	iPadPortraitStyles: PropTypes.object,
 	iPadLandscapeStyles: PropTypes.object,
+	colSpan: PropTypes.string,
+	rowSpan: PropTypes.string,
+	id: PropTypes.string,
 	children: PropTypes.oneOfType([
 		PropTypes.string,
 		PropTypes.array,

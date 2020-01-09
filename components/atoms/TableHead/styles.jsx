@@ -2,10 +2,10 @@ import styled from "styled-components";
 import { minBreakpoints } from "../../styles/breakpoints";
 import { generateCSS } from "../../../helpers/utilities";
 
-const styles = styled.td`
-	padding: 1rem 1.5rem;
-	text-align: center;
-	
+const styles = styled.thead`
+	background-color: #eae8ee;
+	text-transform: uppercase;
+
 	${props => generateCSS(props.styles)}
 
 	@media ${minBreakpoints.mobileLandscape} {

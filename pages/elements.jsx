@@ -17,7 +17,9 @@ import {
 	ProgressBar,
 	BlockQuote,
 	Table,
+	TableHead,
 	TableHeader,
+	TableBody,
 	TableRow,
 	TableColumn,
 	FlexContainer,
@@ -29,7 +31,7 @@ import { faCommentAlt } from "@fortawesome/free-regular-svg-icons";
 const Elements = () => (
 	<main>
 		<SiteContainer>
-			<Styles />
+			<Styles backgroundColor="#eeebf2" />
 
 			<SectionContainer>
 				<Heading
@@ -390,19 +392,81 @@ const Elements = () => (
 				</Heading>
 
 				<Table>
-					<thead>
+					<TableHead>
 						<TableRow>
+							<TableHeader>&nbsp;</TableHeader>
 							<TableHeader>Column 1</TableHeader>
 							<TableHeader>Column 2</TableHeader>
+							<TableHeader>Column 3</TableHeader>
 						</TableRow>
-					</thead>
+					</TableHead>
 
-					<tbody>
+					<TableBody>
 						<TableRow>
-							<TableColumn>Data 1</TableColumn>
-							<TableColumn>Data 2</TableColumn>
+							<TableColumn
+								styles={{
+									color: "#43474d",
+									textTransform: "uppercase",
+									textAlign: "left"
+								}}
+							>
+								Row 1
+							</TableColumn>
+							<TableColumn>45</TableColumn>
+							<TableColumn>15</TableColumn>
+							<TableColumn>new</TableColumn>
 						</TableRow>
-					</tbody>
+
+						<TableRow>
+							<TableColumn
+								styles={{
+									color: "#43474d",
+									textTransform: "uppercase",
+									textAlign: "left"
+								}}
+							>
+								Row 2
+							</TableColumn>
+
+							<TableColumn>
+								<a href="/">126</a>
+							</TableColumn>
+
+							<TableColumn>46</TableColumn>
+
+							<TableColumn>37</TableColumn>
+						</TableRow>
+
+						<TableRow>
+							<TableColumn
+								styles={{
+									color: "#43474d",
+									textTransform: "uppercase",
+									textAlign: "left"
+								}}
+							>
+								Row 3
+							</TableColumn>
+							<TableColumn>7</TableColumn>
+							<TableColumn>56</TableColumn>
+							<TableColumn>79</TableColumn>
+						</TableRow>
+
+						<TableRow>
+							<TableColumn
+								styles={{
+									color: "#43474d",
+									textTransform: "uppercase",
+									textAlign: "left"
+								}}
+							>
+								Row 4
+							</TableColumn>
+							<TableColumn>new</TableColumn>
+							<TableColumn>23</TableColumn>
+							<TableColumn>46</TableColumn>
+						</TableRow>
+					</TableBody>
 				</Table>
 			</SectionContainer>
 

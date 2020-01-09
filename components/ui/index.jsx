@@ -11,7 +11,9 @@ import ToolTip from "../atoms/ToolTip/";
 import DownArrow from "../atoms/DownArrow/";
 import BlockQuote from "../atoms/BlockQuote/";
 import Table from "../molecules/Table/";
+import TableHead from "../atoms/TableHead/";
 import TableHeader from "../atoms/TableHeader/";
+import TableBody from "../atoms/TableBody/";
 import TableRow from "../atoms/TableRow/";
 import TableColumn from "../atoms/TableColumn/";
 
@@ -33,7 +35,9 @@ export {
 	DownArrow,
 	BlockQuote,
 	Table,
+	TableHead,
 	TableHeader,
+	TableBody,
 	TableRow,
 	TableColumn,
 	FlexContainer,

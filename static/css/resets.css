@@ -163,7 +163,3 @@ input[type=button] {width: auto; overflow: visible;}
 p {
     margin: 1rem 0px;
 }
-
-table, th, td {
-    border: 1px solid $grey-darkest;
-}

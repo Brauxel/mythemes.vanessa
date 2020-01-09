@@ -3,6 +3,8 @@ import { minBreakpoints } from "../../styles/breakpoints";
 import { generateCSS } from "../../../helpers/utilities";
 
 const styles = styled.table`
+	width: 100%;
+
 	${props => generateCSS(props.styles)}
 
 	@media ${minBreakpoints.mobileLandscape} {
