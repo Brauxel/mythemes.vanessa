@@ -393,6 +393,43 @@ const Elements = () => (
 						textAlign: "center"
 					}}
 				>
+					Accordion And Toggle
+				</Heading>
+
+				<FlexContainer
+					iPadPortraitStyles={{
+						display: "block"
+					}}
+				>
+					<SectionContainer
+						style={{
+							flexGrow: 1,
+							flexBasis: "50%",
+							padding: "2rem 2rem"
+						}}
+					>
+						Accordion goes here
+					</SectionContainer>
+
+					<SectionContainer
+						style={{
+							flexGrow: 1,
+							flexBasis: "50%",
+							padding: "2rem 2rem"
+						}}
+					>
+						Secondary Accordion goes here
+					</SectionContainer>
+				</FlexContainer>
+			</SectionContainer>
+
+			<SectionContainer>
+				<Heading
+					as="h3"
+					styles={{
+						textAlign: "center"
+					}}
+				>
 					Tabs
 				</Heading>
 
