@@ -16,6 +16,9 @@ class CrossIcon extends Component {
 		toggle: "__toggle_toggle__"
 	};
 
+	componentDidUpdate(prevProps, prevState) {
+		console.log("crossicon rendder");
+	}
 	// let's add a function that can determine whether
 	// the a prop is controlled. Call it `isControlled`.
 	isControlled(prop) {
@@ -81,6 +84,8 @@ class CrossIcon extends Component {
 					},
 					{}
 				);
+
+				console.log("nonControlledChanges", nonControlledChanges);
 
 				return Object.keys(nonControlledChanges || {}).length
 					? nonControlledChanges

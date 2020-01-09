@@ -486,7 +486,7 @@ const Elements = () => (
 				</Heading>
 
 				<Accordion>
-					<AccordionItem>
+					<AccordionItem id="1">
 						<AccordionHeader>Sample title number 1</AccordionHeader>
 						<AccordionBody>
 							Combined with a handful of model sentence structures, to generate
@@ -496,7 +496,7 @@ const Elements = () => (
 						</AccordionBody>
 					</AccordionItem>
 
-					<AccordionItem>
+					<AccordionItem id="2">
 						<AccordionHeader>Sample title number 2</AccordionHeader>
 
 						<AccordionBody>
@@ -514,7 +514,7 @@ const Elements = () => (
 				<Toggle />
 
 				<Heading>Toggle with control prop</Heading>
-				<Toggle on={true} />
+				<Toggle />
 			</SectionContainer>
 
 			<GridContainer>GRID CONTAINER</GridContainer>
