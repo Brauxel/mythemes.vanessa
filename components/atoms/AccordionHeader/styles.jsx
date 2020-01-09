@@ -1,15 +1,12 @@
 import styled from "styled-components";
-import { fontSizes, iPadFontSizes } from "./cssVariables";
 import { minBreakpoints } from "../../styles/breakpoints";
 import { generateCSS } from "../../../helpers/utilities";
 
-const styles = styled.h1`
+const styles = styled.div`
 	color: #43474d;
 	text-transform: uppercase;
-	font-size: ${props => fontSizes[props.as || "h1"]};
-	margin-bottom: 0.8rem;
-	font-family: "Raleway", Helvetica, Arial, sans-serif;
-	letter-spacing: 0.5rem;
+	letter-spacing: 0.3rem;
+
 	${props => generateCSS(props.styles)}
 
 	@media ${minBreakpoints.mobileLandscape} {
@@ -17,8 +14,6 @@ const styles = styled.h1`
 	}	
 
 	@media ${minBreakpoints.iPadPortrait} {
-		font-size: ${props => iPadFontSizes[props.as || "h1"]};
-		margin-bottom: 10px;
 		${props => generateCSS(props.iPadPortraitStyles)}
 	}
 

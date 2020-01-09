@@ -16,6 +16,10 @@ import TableHeader from "../atoms/TableHeader/";
 import TableBody from "../atoms/TableBody/";
 import TableRow from "../atoms/TableRow/";
 import TableColumn from "../atoms/TableColumn/";
+import Accordion from "../molecules/Accordion/";
+import AccordionHeader from "../atoms/AccordionHeader/";
+import AccordionItem from "../molecules/AccordionItem/";
+import AccordionBody from "../atoms/AccordionBody/";
 
 // Import Containers
 import FlexContainer from "../containers/FlexContainer/";
@@ -40,6 +44,10 @@ export {
 	TableBody,
 	TableRow,
 	TableColumn,
+	Accordion,
+	AccordionHeader,
+	AccordionItem,
+	AccordionBody,
 	FlexContainer,
 	GridContainer
 };

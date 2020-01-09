@@ -22,6 +22,10 @@ import {
 	TableBody,
 	TableRow,
 	TableColumn,
+	Accordion,
+	AccordionHeader,
+	AccordionItem,
+	AccordionBody,
 	FlexContainer,
 	GridContainer
 } from "../components/ui/";
@@ -468,6 +472,33 @@ const Elements = () => (
 						</TableRow>
 					</TableBody>
 				</Table>
+			</SectionContainer>
+
+			<SectionContainer>
+				<Heading
+					as="h3"
+					styles={{
+						textAlign: "center"
+					}}
+				>
+					Accordion And Toggle
+				</Heading>
+
+				<Accordion>
+					<AccordionItem>
+						<AccordionHeader>Sample title number 1</AccordionHeader>
+						<AccordionBody>
+							Combined with a handful of model sentence structures, to generate
+							Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is
+							therefore always free from repetition, injected humour, or
+							non-characteristic words etc.
+						</AccordionBody>
+					</AccordionItem>
+
+					<AccordionItem>
+						<AccordionHeader>Sample title number 2</AccordionHeader>
+					</AccordionItem>
+				</Accordion>
 			</SectionContainer>
 
 			<SectionContainer>
