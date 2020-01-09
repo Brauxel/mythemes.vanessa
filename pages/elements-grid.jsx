@@ -17,6 +17,12 @@ import {
 	ProgressBar,
 	FlexContainer,
 	BlockQuote,
+	Table,
+	TableHead,
+	TableHeader,
+	TableBody,
+	TableRow,
+	TableColumn,
 	GridContainer
 } from "../components/ui/";
 import { faPhotoVideo } from "@fortawesome/free-solid-svg-icons";
@@ -53,7 +59,11 @@ const Elements = () => (
 				</Text>
 			</SectionContainer>
 
-			<FlexContainer>
+			<FlexContainer
+				iPadPortraitStyles={{
+					display: "block"
+				}}
+			>
 				<SectionContainer
 					styles={{
 						flexGrow: 1,
@@ -232,6 +242,151 @@ const Elements = () => (
 			</FlexContainer>
 
 			<SectionContainer>
+				<FlexContainer
+					iPadPortraitStyles={{
+						display: "block"
+					}}
+				>
+					<SectionContainer
+						style={{
+							flexGrow: 1,
+							flexBasis: "50%",
+							padding: "2rem 2rem"
+						}}
+					>
+						<Heading
+							as="h3"
+							styles={{
+								textAlign: "center"
+							}}
+						>
+							Blockquote
+						</Heading>
+
+						<Text>
+							There are many variations of passages of Lorem Ipsum available,
+							but the majority have suffered alteration in some form, by
+							injected humour, or randomised words which don&apos;t look even
+							slightly believable. If you are going to use a passage of Lorem
+							Ipsum, you need to be sure there isn&apos;t anything embarrassing
+							hidden in the middle of text.
+						</Text>
+
+						<BlockQuote>
+							<em>
+								All the Lorem Ipsum generators on the Internet tend to repeat
+								predefined chunks as necessary, making this the first true
+								generator on the Internet. It uses a dictionary of over 200
+								Latin words, combined with a handful.
+							</em>
+						</BlockQuote>
+
+						<Text>
+							Combined with a handful of model sentence structures, to generate
+							Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is
+							therefore always free from repetition, injected humour, or
+							non-characteristic words etc.
+						</Text>
+					</SectionContainer>
+
+					<SectionContainer
+						style={{
+							flexGrow: 1,
+							flexBasis: "50%",
+							padding: "2rem 2rem"
+						}}
+					>
+						<Heading
+							as="h3"
+							styles={{
+								textAlign: "center"
+							}}
+						>
+							Table
+						</Heading>
+
+						<Table>
+							<TableHead>
+								<TableRow>
+									<TableHeader>&nbsp;</TableHeader>
+									<TableHeader>Column 1</TableHeader>
+									<TableHeader>Column 2</TableHeader>
+									<TableHeader>Column 3</TableHeader>
+								</TableRow>
+							</TableHead>
+
+							<TableBody>
+								<TableRow>
+									<TableColumn
+										styles={{
+											color: "#43474d",
+											textTransform: "uppercase",
+											textAlign: "left"
+										}}
+									>
+										Row 1
+									</TableColumn>
+									<TableColumn>45</TableColumn>
+									<TableColumn>15</TableColumn>
+									<TableColumn>new</TableColumn>
+								</TableRow>
+
+								<TableRow>
+									<TableColumn
+										styles={{
+											color: "#43474d",
+											textTransform: "uppercase",
+											textAlign: "left"
+										}}
+									>
+										Row 2
+									</TableColumn>
+
+									<TableColumn>
+										<a href="/">126</a>
+									</TableColumn>
+
+									<TableColumn>46</TableColumn>
+
+									<TableColumn>37</TableColumn>
+								</TableRow>
+
+								<TableRow>
+									<TableColumn
+										styles={{
+											color: "#43474d",
+											textTransform: "uppercase",
+											textAlign: "left"
+										}}
+									>
+										Row 3
+									</TableColumn>
+									<TableColumn>7</TableColumn>
+									<TableColumn>56</TableColumn>
+									<TableColumn>79</TableColumn>
+								</TableRow>
+
+								<TableRow>
+									<TableColumn
+										styles={{
+											color: "#43474d",
+											textTransform: "uppercase",
+											textAlign: "left"
+										}}
+									>
+										Row 4
+									</TableColumn>
+									<TableColumn>new</TableColumn>
+									<TableColumn>23</TableColumn>
+									<TableColumn>46</TableColumn>
+								</TableRow>
+							</TableBody>
+						</Table>
+					</SectionContainer>
+				</FlexContainer>
+			</SectionContainer>
+
+			<SectionContainer>
 				<Heading
 					as="h3"
 					styles={{
@@ -241,7 +396,11 @@ const Elements = () => (
 					Tabs
 				</Heading>
 
-				<FlexContainer>
+				<FlexContainer
+					iPadPortraitStyles={{
+						display: "block"
+					}}
+				>
 					<SectionContainer
 						style={{
 							flexGrow: 1,
@@ -351,69 +510,6 @@ const Elements = () => (
 								<TabContent>Our News Content</TabContent>
 							</Tab>
 						</Tabs>
-					</SectionContainer>
-				</FlexContainer>
-			</SectionContainer>
-
-			<SectionContainer>
-				<FlexContainer>
-					<SectionContainer
-						style={{
-							flexGrow: 1,
-							flexBasis: "50%",
-							padding: "2rem 2rem"
-						}}
-					>
-						<Heading
-							as="h3"
-							styles={{
-								textAlign: "center"
-							}}
-						>
-							Blockquote
-						</Heading>
-
-						<Text>
-							There are many variations of passages of Lorem Ipsum available,
-							but the majority have suffered alteration in some form, by
-							injected humour, or randomised words which don&apos;t look even
-							slightly believable. If you are going to use a passage of Lorem
-							Ipsum, you need to be sure there isn&apos;t anything embarrassing
-							hidden in the middle of text.
-						</Text>
-
-						<BlockQuote>
-							<em>
-								All the Lorem Ipsum generators on the Internet tend to repeat
-								predefined chunks as necessary, making this the first true
-								generator on the Internet. It uses a dictionary of over 200
-								Latin words, combined with a handful.
-							</em>
-						</BlockQuote>
-
-						<Text>
-							Combined with a handful of model sentence structures, to generate
-							Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is
-							therefore always free from repetition, injected humour, or
-							non-characteristic words etc.
-						</Text>
-					</SectionContainer>
-
-					<SectionContainer
-						style={{
-							flexGrow: 1,
-							flexBasis: "50%",
-							padding: "2rem 2rem"
-						}}
-					>
-						<Heading
-							as="h3"
-							styles={{
-								textAlign: "center"
-							}}
-						>
-							Table
-						</Heading>
 					</SectionContainer>
 				</FlexContainer>
 			</SectionContainer>

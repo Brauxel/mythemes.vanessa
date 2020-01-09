@@ -3,12 +3,13 @@ import { minBreakpoints } from "../../styles/breakpoints";
 import { generateCSS } from "../../../helpers/utilities";
 
 const styles = styled.td`
-	padding: 1rem 1.5rem;
+	padding: 1rem 0.5rem;
 	text-align: center;
 	
 	${props => generateCSS(props.styles)}
 
 	@media ${minBreakpoints.mobileLandscape} {
+		padding: 1rem 1.5rem;
 		${props => generateCSS(props.mobileLandscapeStyles)}
 	}	
 
