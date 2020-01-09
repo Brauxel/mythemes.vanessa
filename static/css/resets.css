@@ -123,7 +123,7 @@ label,
 input[type=button],
 input[type=submit],
 input[type=file],
-button {cursor: pointer; color: inherit;}
+button {cursor: pointer; color: inherit; padding: 0;}
 
 /* Webkit browsers add a 2px margin outside the chrome of form elements */
 button, input, select, textarea {margin: 0;}

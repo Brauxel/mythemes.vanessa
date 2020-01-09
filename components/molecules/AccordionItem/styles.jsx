@@ -7,6 +7,14 @@ const styles = styled.div`
 	padding: 1rem 1.5rem;	
 	margin-top: 0.25rem;
 	margin-bottom: 0.25rem;
+	color: #43474d;
+	transition: all 0.3s ease-in;
+
+	&:hover {
+		color: #e0005f;
+		border-color: #e0005f;
+	}
+
 
 	${props => generateCSS(props.styles)}
 

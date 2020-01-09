@@ -20,6 +20,7 @@ import Accordion from "../molecules/Accordion/";
 import AccordionHeader from "../atoms/AccordionHeader/";
 import AccordionItem from "../molecules/AccordionItem/";
 import AccordionBody from "../atoms/AccordionBody/";
+import CrossIcon from "../atoms/CrossIcon/";
 
 // Import Containers
 import FlexContainer from "../containers/FlexContainer/";
@@ -48,6 +49,7 @@ export {
 	AccordionHeader,
 	AccordionItem,
 	AccordionBody,
+	CrossIcon,
 	FlexContainer,
 	GridContainer
 };

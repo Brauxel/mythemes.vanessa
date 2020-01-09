@@ -4,6 +4,7 @@ import { generateCSS } from "../../../helpers/utilities";
 
 const styles = styled.div`
 	padding: 2.5rem 0 1.5rem 1.5rem;
+	color: #bababa;
 
 	${props => generateCSS(props.styles)}
 

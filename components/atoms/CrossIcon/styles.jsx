@@ -2,10 +2,11 @@ import styled from "styled-components";
 import { minBreakpoints } from "../../styles/breakpoints";
 import { generateCSS } from "../../../helpers/utilities";
 
-const styles = styled.div`
-	text-transform: uppercase;
-	letter-spacing: 0.3rem;
-	cursor: pointer;
+const styles = styled.button`
+	width: 2.5rem;
+	height: 2.5rem;
+	background-color: #eae8ee;
+	padding: 0.5rem;
 
 	${props => generateCSS(props.styles)}
 

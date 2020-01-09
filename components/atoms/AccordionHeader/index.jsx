@@ -1,11 +1,25 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import AccordionHeaderComp from "./styles";
+import CrossIcon from "../../atoms/CrossIcon/";
+import FlexContainer from "../../containers/FlexContainer/";
 
 class AccordionHeader extends Component {
 	render() {
 		const { children } = this.props;
-		return <AccordionHeaderComp>{children}</AccordionHeaderComp>;
+		return (
+			<AccordionHeaderComp>
+				<FlexContainer
+					styles={{
+						display: "flex",
+						alignContent: "center",
+						justifyContent: "space-between"
+					}}
+				>
+					{children} <CrossIcon />
+				</FlexContainer>
+			</AccordionHeaderComp>
+		);
 	}
 }
 

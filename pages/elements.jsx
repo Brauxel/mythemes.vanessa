@@ -26,6 +26,7 @@ import {
 	AccordionHeader,
 	AccordionItem,
 	AccordionBody,
+	CrossIcon,
 	FlexContainer,
 	GridContainer
 } from "../components/ui/";
@@ -497,6 +498,13 @@ const Elements = () => (
 
 					<AccordionItem>
 						<AccordionHeader>Sample title number 2</AccordionHeader>
+
+						<AccordionBody>
+							Combined with a handful of model sentence structures, to generate
+							Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is
+							therefore always free from repetition, injected humour, or
+							non-characteristic words etc.
+						</AccordionBody>
 					</AccordionItem>
 				</Accordion>
 			</SectionContainer>
