@@ -101,9 +101,9 @@ class Accordion extends Component {
 		);
 	};
 
-	toggle = ({ actionType = Accordion.stateChangeTypes.toggle } = {}) => {
+	toggle = (currentOpen = this.state.currentOpen) => {
 		this.internalSetState(
-			({ isOpen }) => ({ actionType, isOpen: !isOpen }),
+			() => ({ currentOpen }),
 			() => {
 				if (typeof this.props.onClick === "function") this.props.onClick();
 			}
@@ -117,12 +117,14 @@ class Accordion extends Component {
 	render() {
 		const { children } = this.props;
 		const { currentOpen } = this.state;
+		const toggle = this.toggle;
 
 		return (
 			<AccordionComp>
 				{React.Children.map(children, child => {
 					return React.cloneElement(child, {
-						isOpen: child.props.id === currentOpen
+						isOpen: child.props.id === currentOpen,
+						onClick: toggle
 					});
 				})}
 			</AccordionComp>

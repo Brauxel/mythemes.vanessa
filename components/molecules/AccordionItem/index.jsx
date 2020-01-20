@@ -112,14 +112,16 @@ class AccordionItem extends Component {
 		return { ...this.getState() };
 	}
 	render() {
-		const { children } = this.props;
+		const { children, id } = this.props;
 		const { isOpen } = this.state;
 
 		return (
 			<AccordionItemComp>
 				{React.Children.map(children, child => {
 					return React.cloneElement(child, {
-						isOpen: isOpen
+						isOpen: isOpen,
+						id: id,
+						onClick: this.props.onClick
 					});
 				})}
 			</AccordionItemComp>

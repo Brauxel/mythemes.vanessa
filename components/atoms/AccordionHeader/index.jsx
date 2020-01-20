@@ -102,10 +102,11 @@ class AccordionHeader extends Component {
 	};
 
 	toggle = ({ actionType = CrossIcon.stateChangeTypes.toggle } = {}) => {
+		const { id } = this.props;
 		this.internalSetState(
 			({ isOpen }) => ({ actionType, isOpen: !isOpen }),
 			() => {
-				if (typeof this.props.onClick === "function") this.props.onClick();
+				if (typeof this.props.onClick === "function") this.props.onClick(id);
 			}
 		);
 	};
@@ -115,6 +116,7 @@ class AccordionHeader extends Component {
 	}
 
 	render() {
+		console.log("initialState", this.initialState);
 		const { children } = this.props;
 		const { isOpen } = this.state;
 
@@ -144,6 +146,7 @@ AccordionHeader.propTypes = {
 	stateReducer: PropTypes.func,
 	onStateChange: PropTypes.func,
 	isOpen: PropTypes.bool,
+	id: PropTypes.string,
 	children: PropTypes.oneOfType([
 		PropTypes.string,
 		PropTypes.array,
